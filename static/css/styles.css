@@ -1,0 +1,12 @@
+/* Notification Styles */
+.notification {
+    display: none;
+}
+
+/* Hapus styles untuk tombol password dan delete */
+.security-btn .fa-key,
+.delete-chocolate,
+.chocolate-container,
+.trash-icon {
+    display: none;
+}

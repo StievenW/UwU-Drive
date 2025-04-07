@@ -1,0 +1,1274 @@
+.download-container {
+    max-width: 100%;
+    width: 90%;
+    margin: 40px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.15);
+    border: 2px solid #ffb6c1;
+    text-align: center;
+    position: relative;
+}
+
+.file-icon {
+    font-size: 48px;
+    color: #ff69b4;
+    margin-bottom: 20px;
+}
+
+.file-details {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fff5f8;
+    border-radius: 15px;
+    text-align: left;
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    color: #666;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+    border-radius: 10px; /* Add border radius */
+}
+
+.download-btn {
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    color: white;
+    font-weight: bold;
+    margin: 20px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+}
+
+.download-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.3);
+}
+
+.download-btn:disabled {
+    background: #ccc;
+    transform: none;
+    box-shadow: none;
+}
+
+.password-form {
+    margin: 20px 0;
+    padding: 20px;
+    background: #fff5f8;
+    border-radius: 15px;
+    border: 1px dashed #ffb6c1;
+}
+
+.kawaii-input {
+    border: 2px solid #ffb6c1;
+    border-radius: 12px;
+    padding: 8px 15px;
+    width: 100%;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+}
+
+.kawaii-input:focus {
+    outline: none;
+    border-color: #ff69b4;
+    box-shadow: 0 0 10px rgba(255, 105, 180, 0.2);
+}
+
+.progress-wrapper {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: min(300px, 90vw); /* Use responsive width */
+    max-width: 95vw; /* Maximum width on mobile */
+    background: white;
+    border-radius: 15px;
+    border: 2px solid #ffb6c1;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+    display: none;
+    z-index: 1000;
+    overflow: hidden;
+    margin: 0 auto; /* Center on mobile */
+}
+
+.progress-header {
+    padding: 12px 15px;
+    background: #fff5f8;
+    border-bottom: 1px solid #ffb6c1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 45px; /* Ensure touchable height */
+}
+
+.progress-title {
+    font-weight: bold;
+    color: #ff69b4;
+    font-size: 0.95em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 70%;
+}
+
+.progress-controls {
+    display: flex;
+    gap: 15px; /* Increased gap for better touch targets */
+    align-items: center;
+}
+
+.toggle-btn, .close-btn {
+    padding: 8px; /* Larger touch target */
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #888;
+    min-width: 30px; /* Minimum touchable width */
+    min-height: 30px; /* Minimum touchable height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.progress-wrapper.collapsed .progress-content {
+    display: none;
+}
+
+.progress-content {
+    padding: 15px;
+}
+
+.toggle-btn {
+    transition: transform 0.3s ease;
+}
+
+.progress-wrapper.collapsed .toggle-btn {
+    transform: rotate(180deg);
+}
+
+.progress-bar {
+    height: 20px;
+    background-color: #fff1f6;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.progress-bar .progress-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.progress-controls {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-controls .toggle-btn,
+.progress-controls .close-btn {
+    cursor: pointer;
+    font-size: 1.2em;
+    color: #888;
+    margin-left: 10px;
+}
+
+.progress-controls .toggle-btn:hover,
+.progress-controls .close-btn:hover {
+    color: #ff69b4;
+}
+
+.disabled-notice {
+    background: #ffe6e6;
+    color: #ff4444;
+    padding: 15px;
+    border-radius: 10px;
+    display: none;
+    position: fixed; /* Make it fixed */
+    bottom: 20px; /* Move to the bottom */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%); /* Center it */
+    width: 80%; /* Adjust width */
+    text-align: center; /* Center text */
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2); /* Add shadow */
+}
+
+.password-alert {
+    color: #ff4444;
+    margin: 10px 0;
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading {
+    animation: spin 1s linear infinite;
+}
+
+#filename {
+    font-size: 1.2em; /* Adjust font size */
+    word-wrap: break-word; /* Ensure long names wrap within the container */
+}
+
+@media (max-width: 768px) {
+    .download-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .download-btn {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .file-details {
+        padding: 10px;
+    }
+
+    .detail-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .progress-wrapper {
+        right: 50%; /* Center horizontally */
+        transform: translateX(50%); /* Center horizontally */
+        width: 90vw; /* Full width with margins */
+        bottom: 10px; /* Slightly higher from bottom */
+    }
+
+    .progress-header {
+        padding: 10px 12px;
+    }
+
+    .progress-content {
+        padding: 12px;
+    }
+
+    .download-info {
+        font-size: 0.9em; /* Slightly smaller text on mobile */
+    }
+
+    /* Ensure controls are easily tappable */
+    .toggle-btn, .close-btn {
+        padding: 10px;
+        min-width: 35px;
+        min-height: 35px;
+    }
+}
+
+/* Safe area adjustments for modern mobile browsers */
+@supports (padding: env(safe-area-inset-bottom)) {
+    .progress-wrapper {
+        bottom: calc(env(safe-area-inset-bottom) + 10px);
+        padding-bottom: env(safe-area-inset-bottom);
+    }
+}
+
+.preview-container {
+    margin: 20px 0;
+    padding: 15px;
+    background: #fff5f8;
+    border-radius: 15px;
+    text-align: center;
+    display: none;
+}
+
+.preview-container img,
+.preview-container video {
+    max-width: 100%;
+    max-height: 500px;
+    border-radius: 10px;
+}
+
+.preview-container audio {
+    width: 100%;
+}
+
+.preview-container iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 10px;
+}
+
+.preview-btn {
+    background: linear-gradient(45deg, #ff69b4, #ffb6c1);
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    color: white;
+    font-weight: bold;
+    margin: 10px 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.2);
+}
+
+.preview-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.3);
+}
+
+.preview-btn:disabled {
+    background: #ccc;
+    transform: none;
+    box-shadow: none;
+}
+
+.preview-btn.loading {
+    position: relative;
+    pointer-events: none;
+    color: transparent !important;
+    background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+    transform: none !important; /* Prevent button from transforming */
+}
+
+.preview-btn.loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid transparent;
+    border-top-color: #ffffff;
+    border-radius: 50%;
+    animation: preview-button-loading-spinner 1s linear infinite;
+}
+
+@keyframes preview-button-loading-spinner {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@media (max-width: 768px) {
+    .preview-container iframe {
+        height: 300px;
+    }
+}
+
+/* PDF Preview Layout */
+.pdf-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    margin: 0 auto;
+    background: #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-toolbar {
+    background: #1a1a1a;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #3a3a3a;
+    min-height: 60px;
+}
+
+.pdf-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.page-info {
+    font-family: monospace;
+    color: #fff;
+    font-size: 0.95em;
+    min-width: 80px;
+    text-align: center;
+    user-select: none;
+    background: #333;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.pdf-toolbar button {
+    background: #404040;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+}
+
+.pdf-toolbar button:hover:not(:disabled) {
+    background: #505050;
+}
+
+.pdf-toolbar button:disabled {
+    background: #303030;
+    color: #666;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .pdf-toolbar {
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pdf-controls,
+    .pdf-fullscreen {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+.pdf-right-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.pdf-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-right: 15px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .pdf-toolbar {
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .pdf-right-controls {
+        width: 100%;
+        justify-content: center;
+        margin: 0;
+    }
+}
+
+.pdf-viewer {
+    flex: 1;
+    overflow: auto;
+    padding: 20px;
+    background: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.pdf-viewer canvas {
+    max-width: 100%;
+    height: auto;
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .pdf-toolbar {
+        padding: 10px;
+        flex-direction: column;
+        gap: 10px;
+        min-height: auto;
+    }
+
+
+
+    .pdf-controls {
+        order: 1;
+    }
+
+
+
+    .pdf-fullscreen {
+        order: 3;
+    }
+
+    .page-info,
+    .zoom-level {
+        font-size: 0.85em;
+        min-width: auto;
+    }
+
+    .pdf-toolbar button {
+        padding: 6px;
+        min-width: 32px;
+        height: 32px;
+    }
+}
+
+/* PDF Preview styles */
+.pdf-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    margin: 0 auto;
+    background: #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-toolbar {
+    background: #1a1a1a;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #3a3a3a;
+    gap: 10px;
+}
+
+.pdf-controls-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pdf-controls {
+    margin: 0 auto; /* Center the controls */
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+.pdf-fullscreen {
+    margin-left: auto; /* Push to right */
+}
+
+.page-info {
+    font-size: 0.9em;
+    color: #ccc;
+    min-width: 120px;
+    text-align: center;
+    font-family: monospace;
+    user-select: none;
+}
+
+.zoom-level {
+    font-size: 0.9em;
+    color: #ccc;
+    min-width: 60px;
+    text-align: center;
+    font-family: monospace;
+    user-select: none;
+}
+
+.pdf-toolbar button {
+    background: #404040;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+}
+
+.pdf-toolbar button:hover:not(:disabled) {
+    background: #505050;
+    transform: translateY(-1px);
+}
+
+.pdf-toolbar button:active:not(:disabled) {
+    background: #606060;
+    transform: translateY(0);
+}
+
+.pdf-toolbar button:disabled {
+    background: #303030;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+    opacity: 0.7;
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .pdf-toolbar {
+        padding: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .pdf-controls {
+        order: 1;
+        width: 100%;
+        justify-content: center;
+    }
+
+
+    .pdf-fullscreen {
+        order: 3;
+        margin-left: 0;
+    }
+
+    .pdf-toolbar button {
+        padding: 6px;
+        min-width: 32px;
+        height: 32px;
+    }
+
+    .page-info, .zoom-level {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 768px) {
+    .pdf-container {
+        width: 95%;
+        height: 70vh;
+    }
+
+    .pdf-toolbar {
+        padding: 8px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 8px;
+    }
+
+
+
+    .pdf-toolbar button {
+        padding: 6px;
+        min-width: 32px;
+        height: 32px;
+        font-size: 0.9em;
+    }
+
+    #pageInfo, #zoomLevel {
+        font-size: 0.8em;
+        min-width: auto;
+    }
+}
+
+/* Video.js custom theme */
+.video-js {
+    width: 100%;
+    max-height: 500px;
+    border-radius: 10px;
+}
+
+.vjs-theme-fantasy {
+    --vjs-theme-fantasy--primary: #ff69b4;
+}
+
+/* Image preview enhancements */
+.preview-image {
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+}
+
+.preview-image:hover {
+    transform: scale(1.02);
+}
+
+/* Add these styles */
+.image-preview-container {
+    position: relative;
+    min-height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.preview-loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    color: #ff69b4;
+}
+
+.preview-image {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.modal-preview {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1050;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content-preview {
+    background: #1a1a1a;
+    border-radius: 10px;
+    padding: 20px;
+    width: 95%;
+    max-width: 1200px;
+    height: auto;
+    max-height: 90vh;
+    position: relative;
+    margin: 20px;
+    overflow: visible;
+    padding-top: 30px; /* Add space for fixed close button */
+}
+
+.modal-close-btn {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    background: #ff69b4;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1100; /* Ensure it is above the PDF preview */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.modal-close-btn:hover {
+    background: #ff4aa6;
+    transform: scale(1.1);
+}
+
+.pdf-container {
+    width: 100%;
+    height: 600px;
+    overflow: hidden;
+    background: #525659;
+    border-radius: 10px;
+    position: relative;
+    margin-top: 0; /* Remove top margin */
+    padding-top: 10px; /* Add small padding instead */
+}
+
+.pdf-page {
+    width: 100%;
+    height: auto;
+}
+
+.pdf-controls {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.pdf-controls button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pdf-controls button:disabled {
+    background: #ccc;
+}
+
+.media-container {
+    width: 100%;
+    background: #000;
+    border-radius: 10px;
+    position: relative;
+    aspect-ratio: 16/9;
+    max-height: calc(90vh - 40px);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Updated Video Preview Container */
+.video-player {
+    width: 100%;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 360px;
+    max-height: 80vh;
+    margin-top: 0; /* Remove top margin */
+    padding-top: 10px; /* Add small padding instead */
+}
+
+.video-player .video-js {
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 360px;
+    background-color: #000 !important;
+}
+
+.video-player.vertical {
+    max-width: 540px;
+}
+
+.video-player.vertical .video-js {
+    aspect-ratio: 9/16;
+}
+
+/* Overlay styles */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1055;
+    pointer-events: none;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-player {
+        min-height: 240px;
+        border-radius: 8px;
+    }
+
+    .video-player .video-js {
+        min-height: 240px;
+    }
+
+    .audio-modal {
+        padding: 15px;
+    }
+}
+
+/* Dark overlay for modal background */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1055;
+    pointer-events: none;
+}
+
+.modal-overlay.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Video player styles */
+.video-player {
+    max-width: 960px; /* Increased from 640px */
+    width: 100%;
+    margin: 0 auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.video-player.vertical {
+    max-width: 540px; /* Increased from 360px */
+}
+
+.video-player .video-js {
+    width: 100%;
+    aspect-ratio: auto; /* Let the player determine ratio */
+    min-height: 200px;
+    max-height: calc(100vh - 200px);
+}
+
+.video-player.vertical .video-js {
+    aspect-ratio: auto;
+}
+
+/* Custom video.js theme overrides */
+.video-js .vjs-control-bar {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(10px);
+}
+
+.video-js .vjs-big-play-button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: -30px 0 0 -30px;
+}
+
+.video-js .vjs-big-play-button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Improved player controls */
+.vjs-control-bar {
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.vjs-tech {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.vjs-poster {
+    background-size: contain !important;
+}
+
+/* Remove dark hover overlay */
+.video-js .vjs-control-bar::before,
+.video-js .vjs-control-bar::after {
+    display: none !important;
+}
+
+.video-js:hover .vjs-control-bar {
+    background: rgba(0, 0, 0, 0.7) !important;
+}
+
+/* Clear old video/audio styles and add new ones */
+
+/* Video Player */
+.video-player {
+    position: relative;
+    width: 100%;
+    max-width: 1600px; /* Increased from 1280px */
+    margin: 0 auto;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    min-height: 240px; /* Increased minimum height */
+}
+
+.video-player.horizontal {
+    aspect-ratio: 16/9;
+    height: calc(100vh - 200px); /* Taller for better viewing */
+}
+
+.video-player.vertical {
+    aspect-ratio: 9/16;
+    max-width: 720px; /* Increased from 540px */
+    height: calc(100vh - 160px);
+}
+
+/* Preview Overlay - Fixed */
+.preview-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 1055;
+    pointer-events: none;
+}
+
+.preview-overlay.show {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+}
+
+/* Fix image preview container */
+.image-preview-container {
+    position: relative;
+    width: 100%;
+    max-height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.preview-close-btn {
+    position: fixed; /* Change to fixed position */
+    top: 20px; /* Position from top of viewport */
+    right: 20px; /* Position from right of viewport */
+    width: 36px; /* Slightly larger */
+    height: 36px; /* Slightly larger */
+    background: #ff69b4;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999; /* Very high z-index to stay on top */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    font-size: 1.2em; /* Slightly larger icon */
+}
+
+.preview-close-btn:hover {
+    transform: scale(1.1) rotate(90deg); /* Add rotation effect */
+    background: #ff4aa6;
+}
+
+/* Adjust preview containers for close button */
+.pdf-container,
+.video-player,
+.image-preview-container {
+    margin-top: 0; /* Remove top margin */
+    padding-top: 10px; /* Add small padding instead */
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .preview-close-btn {
+        top: 10px;
+        right: 10px;
+        width: 32px;
+        height: 32px;
+        font-size: 1em;
+    }
+}
+
+/* Adjust preview containers for close button */
+.pdf-container,
+.video-player {
+    position: relative;
+    margin-top: 20px;
+}
+
+/* PDF Viewer styles */
+.pdf-container {
+    position: relative;
+    width: 90%;
+    max-width: 1000px;
+    height: 80vh;
+    margin: 0 auto;
+    background: #2c2c2c;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.pdf-toolbar {
+    background: #1a1a1a;
+    padding: 12px 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    color: white;
+    border-bottom: 1px solid #3a3a3a;
+    align-items: center;
+}
+
+.pdf-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: flex-start;
+}
+
+
+
+.pdf-fullscreen {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.pdf-toolbar button {
+    background: #404040;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+}
+
+.pdf-toolbar button:hover {
+    background: #505050;
+    transform: translateY(-1px);
+}
+
+.pdf-toolbar button:active {
+    background: #606060;
+    transform: translateY(0);
+}
+
+.pdf-toolbar button:disabled {
+    background: #303030;
+    color: #666;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#pageInfo {
+    font-size: 0.9em;
+    color: #ccc;
+    min-width: 120px;
+    text-align: center;
+    font-family: monospace;
+}
+
+#zoomLevel {
+    font-size: 0.9em;
+    color: #ccc;
+    min-width: 60px;
+    text-align: center;
+    font-family: monospace;
+}
+
+.pdf-viewer {
+    flex: 1;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    background: #404040;
+}
+
+.pdf-viewer canvas {
+    max-width: 100%;
+    height: auto;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    background: white;
+    border-radius: 4px;
+}
+
+/* Fullscreen mode adjustments */
+.pdf-container:fullscreen {
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #2c2c2c;
+}
+
+.pdf-container:fullscreen .pdf-viewer {
+    height: calc(100vh - 61px);
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .pdf-container {
+        width: 95%;
+        height: 70vh;
+    }
+
+    .pdf-toolbar {
+        padding: 8px;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(3, auto);
+        gap: 8px;
+    }
+
+
+    .pdf-toolbar button {
+        padding: 6px;
+        min-width: 32px;
+        height: 32px;
+        font-size: 0.9em;
+    }
+
+    #pageInfo, #zoomLevel {
+        font-size: 0.8em;
+        min-width: auto;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 768px) {
+    .pdf-toolbar {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+
+
+    #pageInfo, #zoomLevel {
+        min-width: 80px;
+        font-size: 0.8em;
+    }
+
+    .pdf-toolbar button {
+        padding: 6px 10px;
+    }
+}
+

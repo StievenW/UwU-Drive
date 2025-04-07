@@ -1,0 +1,1 @@
+$process = Start-Process python -ArgumentList "server.py" -NoNewWindow -PassThru

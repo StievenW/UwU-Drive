@@ -1,0 +1,249 @@
+.media-player {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2001;
+}
+
+.media-header {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    position: relative;
+    z-index: 2002;
+}
+
+.media-artwork {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    margin-right: 15px;
+    background: linear-gradient(45deg, #2a2a2a, #3a3a3a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.media-artwork i {
+    font-size: 24px;
+    color: #1db954;
+}
+
+.media-info {
+    flex: 1;
+}
+
+.media-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.media-content {
+    position: relative;
+    padding: 20px;
+}
+
+.media-progress {
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.progress-bar {
+    position: absolute;
+    height: 100%;
+    background: #1db954;
+    border-radius: 2px;
+    transition: width 0.1s linear;
+}
+
+.progress-handle {
+    position: absolute;
+    right: -6px;
+    top: -4px;
+    width: 12px;
+    height: 12px;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    transition: opacity 0.2s;
+}
+
+.media-progress:hover .progress-handle {
+    opacity: 1;
+}
+
+.time-display {
+    display: flex;
+    justify-content: space-between;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.media-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.control-button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.control-button:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.play-button {
+    width: 48px;
+    height: 48px;
+    background: #1db954;
+    color: #fff;
+}
+
+.play-button:hover {
+    background: #1ed760;
+    transform: scale(1.05);
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 20px;
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 20px;
+}
+
+.volume-slider {
+    width: 100px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+}
+
+.volume-level {
+    position: absolute;
+    height: 100%;
+    background: #1db954;
+    border-radius: 2px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .media-header {
+        padding: 15px;
+    }
+
+    .media-artwork {
+        width: 48px;
+        height: 48px;
+    }
+
+    .media-title {
+        font-size: 14px;
+    }
+
+    .media-metadata {
+        font-size: 12px;
+    }
+
+    .media-controls {
+        gap: 16px;
+    }
+
+    .control-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .play-button {
+        width: 42px;
+        height: 42px;
+    }
+
+    .volume-control {
+        display: none;
+    }
+}
+
+/* Media Player Themes */
+.theme-dark {
+    background: linear-gradient(180deg, #1f1f1f 0%, #121212 100%);
+}
+
+.theme-light {
+    background: linear-gradient(180deg, #f8f8f8 0%, #e8e8e8 100%);
+    color: #333;
+}
+
+.theme-light .media-title {
+    color: #333;
+}
+
+.theme-light .media-metadata {
+    color: #666;
+}
+
+/* Audio Modal Specific Styles */
+.audio-preview-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2000;
+    width: 90%;
+    max-width: 500px;
+    display: none;
+    padding: 0;
+    border-radius: 12px;
+}
+
+.audio-preview-modal.show {
+    display: block;
+}
+
+/* Update modal preview style */
+.modal-preview {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    display: none;
+    z-index: 1050;
+}
