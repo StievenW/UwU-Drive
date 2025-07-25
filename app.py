@@ -109,7 +109,7 @@ limiter = Limiter(
 )
 
 # Security Configuration
-ALLOWED_HOSTS = ['uwu.b4b1.org']  # Ganti dengan domain Anda
+ALLOWED_HOSTS = ['127.0.0.1']  # Ganti dengan domain Anda
 CSRF_TIME_LIMIT = 3600  # 1 jam
 PERMANENT_SESSION_LIFETIME = timedelta(days=1)
 SESSION_COOKIE_SECURE = True
